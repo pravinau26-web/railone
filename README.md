@@ -104,6 +104,41 @@ npm start
 
 ---
 
+## 🌐 Deploying to GitHub & GitHub Pages
+
+### 1. Create a Public Repository on GitHub
+1. Go to [GitHub - New Repository](https://github.com/new).
+2. Set repository name: `railone-app`.
+3. Choose **Public** visibility.
+4. Leave "Add a README", .gitignore, and license unchecked.
+5. Click **Create repository**.
+
+### 2. Push Code from Local to GitHub
+In your project directory, run:
+```bash
+git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/railone-app.git
+git branch -M main
+git push -u origin main
+```
+
+### 3. Automatic Deployment to GitHub Pages
+**Option A: Automated with GitHub Actions (Included in repository)**
+1. On your GitHub repo page, navigate to **Settings** > **Pages** (in the left sidebar).
+2. Under **Build and deployment** > **Source**, select **GitHub Actions**.
+3. Push to `main` (or click **Actions** > **Deploy RailOne to GitHub Pages** > **Run workflow**).
+4. Your site will automatically build and publish at:
+   ```
+   https://<YOUR_GITHUB_USERNAME>.github.io/railone-app/
+   ```
+
+**Option B: One-Command CLI Deploy with `gh-pages`**
+```bash
+npm run deploy
+```
+This runs `npm run build` and automatically pushes the compiled `dist/` bundle to a `gh-pages` branch. Under **Settings** > **Pages**, choose **Deploy from a branch** > `gh-pages` > `/root` > Save.
+
+---
+
 ## 📡 Backend API Endpoints
 
 The Express server (`server.ts`) exposes the following endpoints:
