@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { Booking } from '../types';
 import { PWAInstallButton } from './PWAInstallButton';
+import { getAssetUrl } from '../utils/assets';
 
 interface HomeDashboardProps {
   latestBooking?: Booking;
@@ -57,7 +58,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
 
       {/* 1. Journey Planner Section */}
       <section className="px-4 pt-1">
-        <h2 className="text-sm font-extrabold text-[#1e293b] tracking-tight mb-2">
+        <h2 className="text-base font-extrabold text-[#11244a] tracking-tight mb-2">
           Journey Planner
         </h2>
         <div className="grid grid-cols-3 gap-2.5">
@@ -67,9 +68,9 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
             onClick={onOpenReserved}
             className="group flex flex-col items-center cursor-pointer focus:outline-none"
           >
-            <div className="w-full aspect-[4/3.5] rounded-2xl overflow-hidden shadow-2xs border border-slate-200/80 bg-slate-100 group-hover:shadow-md transition-all">
+            <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xs border border-slate-200/80 bg-slate-100 group-hover:shadow-md transition-all">
               <img
-                src="/extracted_assets/reserved_final.png"
+                src={getAssetUrl('extracted_assets/reserved_final.png')}
                 alt="Reserved Train Booking"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 onError={(e) => {
@@ -78,7 +79,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
                 }}
               />
             </div>
-            <span className="text-xs font-semibold text-[#1e293b] mt-1.5 tracking-tight">
+            <span className="text-xs font-bold text-[#1a2d52] mt-1.5 tracking-tight">
               Reserved
             </span>
           </button>
@@ -89,9 +90,9 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
             onClick={onOpenUnreserved}
             className="group flex flex-col items-center cursor-pointer focus:outline-none"
           >
-            <div className="w-full aspect-[4/3.5] rounded-2xl overflow-hidden shadow-2xs border border-slate-200/80 bg-slate-100 group-hover:shadow-md transition-all">
+            <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xs border border-slate-200/80 bg-slate-100 group-hover:shadow-md transition-all">
               <img
-                src="/extracted_assets/unreserved_final.png"
+                src={getAssetUrl('extracted_assets/unreserved_final.png')}
                 alt="Unreserved E-Ticket"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 onError={(e) => {
@@ -100,7 +101,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
                 }}
               />
             </div>
-            <span className="text-xs font-semibold text-[#1e293b] mt-1.5 tracking-tight">
+            <span className="text-xs font-bold text-[#1a2d52] mt-1.5 tracking-tight">
               Unreserved
             </span>
           </button>
@@ -111,9 +112,9 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
             onClick={onOpenPlatform}
             className="group flex flex-col items-center cursor-pointer focus:outline-none"
           >
-            <div className="w-full aspect-[4/3.5] rounded-2xl overflow-hidden shadow-2xs border border-slate-200/80 bg-slate-100 group-hover:shadow-md transition-all">
+            <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xs border border-slate-200/80 bg-slate-100 group-hover:shadow-md transition-all">
               <img
-                src="/extracted_assets/platform_final.png"
+                src={getAssetUrl('extracted_assets/platform_final.png')}
                 alt="Platform Ticket"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 onError={(e) => {
@@ -122,7 +123,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
                 }}
               />
             </div>
-            <span className="text-xs font-semibold text-[#1e293b] mt-1.5 tracking-tight">
+            <span className="text-xs font-bold text-[#1a2d52] mt-1.5 tracking-tight">
               Platform
             </span>
           </button>
@@ -386,7 +387,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
 
       {/* 5. "Do You know?" Trivia Cards */}
       <section className="px-4">
-        <h2 className="text-sm font-extrabold text-[#1e293b] tracking-tight mb-2">
+        <h2 className="text-sm font-extrabold text-[#11244a] tracking-tight mb-2">
           Do You know?
         </h2>
         <div className="flex gap-3 overflow-x-auto no-scrollbar pb-1">
@@ -394,7 +395,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
           <div className="w-64 shrink-0 bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-2xs">
             <div className="h-32 bg-slate-100 overflow-hidden">
               <img
-                src="/extracted_assets/doyouknow_boribandar.png"
+                src={getAssetUrl('extracted_assets/doyouknow_boribandar.png')}
                 alt="First train between Bori Bandar to Thane"
                 className="w-full h-full object-cover"
               />
@@ -410,7 +411,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
           <div className="w-64 shrink-0 bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-2xs">
             <div className="h-32 bg-slate-100 overflow-hidden">
               <img
-                src="/extracted_assets/doyouknow_chenab.png"
+                src={getAssetUrl('extracted_assets/doyouknow_chenab.png')}
                 alt="Chenab Railway Bridge"
                 className="w-full h-full object-cover"
               />
@@ -426,7 +427,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
           <div className="w-64 shrink-0 bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-2xs">
             <div className="h-32 bg-slate-100 overflow-hidden">
               <img
-                src="/extracted_assets/doyouknow_chenab.png"
+                src={getAssetUrl('extracted_assets/doyouknow_chenab.png')}
                 alt="Noney Bridge"
                 className="w-full h-full object-cover filter hue-rotate-60"
               />

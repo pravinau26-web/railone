@@ -13,6 +13,7 @@ import {
 import { Booking } from '../types';
 import { EditBookingModal } from './EditBookingModal';
 import QRCode from 'qrcode';
+import { getAssetUrl } from '../utils/assets';
 
 interface TicketDetailsScreenProps {
   booking: Booking;
@@ -60,7 +61,7 @@ export const TicketDetailsScreen: React.FC<TicketDetailsScreenProps> = ({
         setQrDataUrl(url);
       })
       .catch(() => {
-        setQrDataUrl('/extracted_assets/ticket_straight_qr.png');
+        setQrDataUrl(getAssetUrl('extracted_assets/ticket_straight_qr.png'));
       });
   }, [booking]);
 
@@ -495,7 +496,7 @@ IR Verification: ${booking.irCode}
             <div className="flex flex-col items-center justify-center pt-2">
               <div className="p-2.5 bg-white rounded-xl border border-slate-200 shadow-2xs">
                 <img
-                  src={qrDataUrl || '/extracted_assets/ticket_straight_qr.png'}
+                  src={qrDataUrl || getAssetUrl('extracted_assets/ticket_straight_qr.png')}
                   alt="UTS Indian Railways Ticket QR Code"
                   className="w-44 h-44 object-contain block mx-auto"
                 />
