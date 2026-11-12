@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
 import {
-  Search,
-  FileText,
-  Boxes,
-  Compass,
-  UtensilsCrossed,
-  RotateCcw,
-  HandHeart,
   Calendar,
   Package,
   Calculator,
   Pencil,
+  Compass,
 } from 'lucide-react';
 import { Booking } from '../types';
 import { PWAInstallButton } from './PWAInstallButton';
 import { getAssetUrl } from '../utils/assets';
+import { OfferingIcon } from './OfferingIcon';
 
 interface HomeDashboardProps {
   latestBooking?: Booking;
@@ -132,118 +127,102 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
 
       {/* 2. More Offerings Grid */}
       <section className="px-4">
-        <h2 className="text-sm font-extrabold text-[#1e293b] tracking-tight mb-2.5">
+        <h2 className="text-base font-extrabold text-[#11244a] tracking-tight mb-2.5">
           More Offerings
         </h2>
-        <div className="grid grid-cols-4 gap-2.5">
-          {/* Search Trains */}
+        <div className="grid grid-cols-4 gap-2">
+          {/* 1. Search Trains */}
           <button
             type="button"
             onClick={onOpenReserved}
-            className="flex flex-col items-center p-2 rounded-2xl bg-white hover:bg-slate-50 border border-slate-100 shadow-2xs transition-all active:scale-95 cursor-pointer text-center"
+            className="group flex flex-col items-center p-1.5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-100 shadow-2xs hover:shadow-xs transition-all active:scale-95 cursor-pointer text-center"
           >
-            <div className="w-12 h-12 rounded-2xl bg-[#fdf2f8] text-[#db2777] flex items-center justify-center mb-1 shadow-2xs">
-              <Search className="w-6 h-6 stroke-[2]" />
-            </div>
-            <span className="text-[11px] font-semibold text-[#1e293b] leading-tight">
+            <OfferingIcon type="search_trains" />
+            <span className="text-[11px] font-semibold text-[#152744] mt-1.5 leading-tight text-center">
               Search Trains
             </span>
           </button>
 
-          {/* PNR Status */}
+          {/* 2. PNR Status */}
           <button
             type="button"
             onClick={onOpenPnr}
-            className="flex flex-col items-center p-2 rounded-2xl bg-white hover:bg-slate-50 border border-slate-100 shadow-2xs transition-all active:scale-95 cursor-pointer text-center"
+            className="group flex flex-col items-center p-1.5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-100 shadow-2xs hover:shadow-xs transition-all active:scale-95 cursor-pointer text-center"
           >
-            <div className="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#059669] flex items-center justify-center mb-1 shadow-2xs">
-              <FileText className="w-6 h-6 stroke-[2]" />
-            </div>
-            <span className="text-[11px] font-semibold text-[#1e293b] leading-tight">
+            <OfferingIcon type="pnr_status" />
+            <span className="text-[11px] font-semibold text-[#152744] mt-1.5 leading-tight text-center">
               PNR Status
             </span>
           </button>
 
-          {/* Coach Position */}
+          {/* 3. Coach Position */}
           <button
             type="button"
             onClick={onOpenCoach}
-            className="flex flex-col items-center p-2 rounded-2xl bg-white hover:bg-slate-50 border border-slate-100 shadow-2xs transition-all active:scale-95 cursor-pointer text-center"
+            className="group flex flex-col items-center p-1.5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-100 shadow-2xs hover:shadow-xs transition-all active:scale-95 cursor-pointer text-center"
           >
-            <div className="w-12 h-12 rounded-2xl bg-[#eff6ff] text-[#2563eb] flex items-center justify-center mb-1 shadow-2xs">
-              <Boxes className="w-6 h-6 stroke-[2]" />
-            </div>
-            <span className="text-[11px] font-semibold text-[#1e293b] leading-tight">
+            <OfferingIcon type="coach_position" />
+            <span className="text-[11px] font-semibold text-[#152744] mt-1.5 leading-tight text-center">
               Coach Position
             </span>
           </button>
 
-          {/* Track Your Train */}
+          {/* 4. Track Your Train */}
           <button
             type="button"
             onClick={onOpenTrack}
-            className="flex flex-col items-center p-2 rounded-2xl bg-white hover:bg-slate-50 border border-slate-100 shadow-2xs transition-all active:scale-95 cursor-pointer text-center"
+            className="group flex flex-col items-center p-1.5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-100 shadow-2xs hover:shadow-xs transition-all active:scale-95 cursor-pointer text-center"
           >
-            <div className="w-12 h-12 rounded-2xl bg-[#fefce8] text-[#ca8a04] flex items-center justify-center mb-1 shadow-2xs">
-              <Compass className="w-6 h-6 stroke-[2]" />
-            </div>
-            <span className="text-[11px] font-semibold text-[#1e293b] leading-tight">
+            <OfferingIcon type="track_train" />
+            <span className="text-[11px] font-semibold text-[#152744] mt-1.5 leading-tight text-center">
               Track Your Train
             </span>
           </button>
 
-          {/* Order Food */}
+          {/* 5. Order Food */}
           <button
             type="button"
             onClick={onOpenOrderFood}
-            className="flex flex-col items-center p-2 rounded-2xl bg-white hover:bg-slate-50 border border-slate-100 shadow-2xs transition-all active:scale-95 cursor-pointer text-center"
+            className="group flex flex-col items-center p-1.5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-100 shadow-2xs hover:shadow-xs transition-all active:scale-95 cursor-pointer text-center"
           >
-            <div className="w-12 h-12 rounded-2xl bg-[#fff7ed] text-[#ea580c] flex items-center justify-center mb-1 shadow-2xs">
-              <UtensilsCrossed className="w-6 h-6 stroke-[2]" />
-            </div>
-            <span className="text-[11px] font-semibold text-[#1e293b] leading-tight">
+            <OfferingIcon type="order_food" />
+            <span className="text-[11px] font-semibold text-[#152744] mt-1.5 leading-tight text-center">
               Order Food
             </span>
           </button>
 
-          {/* File Refund */}
+          {/* 6. File Refund */}
           <button
             type="button"
             onClick={onOpenFileRefund}
-            className="flex flex-col items-center p-2 rounded-2xl bg-white hover:bg-slate-50 border border-slate-100 shadow-2xs transition-all active:scale-95 cursor-pointer text-center"
+            className="group flex flex-col items-center p-1.5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-100 shadow-2xs hover:shadow-xs transition-all active:scale-95 cursor-pointer text-center"
           >
-            <div className="w-12 h-12 rounded-2xl bg-[#f5f3ff] text-[#7c3aed] flex items-center justify-center mb-1 shadow-2xs">
-              <RotateCcw className="w-6 h-6 stroke-[2]" />
-            </div>
-            <span className="text-[11px] font-semibold text-[#1e293b] leading-tight">
+            <OfferingIcon type="file_refund" />
+            <span className="text-[11px] font-semibold text-[#152744] mt-1.5 leading-tight text-center">
               File Refund
             </span>
           </button>
 
-          {/* Rail Madad */}
+          {/* 7. Rail Madad */}
           <button
             type="button"
             onClick={onOpenRailMadad}
-            className="flex flex-col items-center p-2 rounded-2xl bg-white hover:bg-slate-50 border border-slate-100 shadow-2xs transition-all active:scale-95 cursor-pointer text-center"
+            className="group flex flex-col items-center p-1.5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-100 shadow-2xs hover:shadow-xs transition-all active:scale-95 cursor-pointer text-center"
           >
-            <div className="w-12 h-12 rounded-2xl bg-[#fff1f2] text-[#e11d48] flex items-center justify-center mb-1 shadow-2xs">
-              <HandHeart className="w-6 h-6 stroke-[2]" />
-            </div>
-            <span className="text-[11px] font-semibold text-[#1e293b] leading-tight">
+            <OfferingIcon type="rail_madad" />
+            <span className="text-[11px] font-semibold text-[#152744] mt-1.5 leading-tight text-center">
               Rail Madad
             </span>
           </button>
 
-          {/* Go To WAVES */}
+          {/* 8. Go To WAVES */}
           <button
             type="button"
             onClick={() => alert('WAVES: Indian Railways In-Train Content on Demand & Wi-Fi Portal.')}
-            className="flex flex-col items-center p-2 rounded-2xl bg-white hover:bg-slate-50 border border-slate-100 shadow-2xs transition-all active:scale-95 cursor-pointer text-center"
+            className="group flex flex-col items-center p-1.5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-100 shadow-2xs hover:shadow-xs transition-all active:scale-95 cursor-pointer text-center"
           >
-            <div className="w-12 h-12 rounded-2xl bg-[#0f172a] text-white flex items-center justify-center font-black text-sm mb-1 shadow-2xs">
-              W
-            </div>
-            <span className="text-[11px] font-semibold text-[#1e293b] leading-tight">
+            <OfferingIcon type="goto_waves" />
+            <span className="text-[11px] font-semibold text-[#152744] mt-1.5 leading-tight text-center">
               Go To WAVES
             </span>
           </button>
