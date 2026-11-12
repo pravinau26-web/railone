@@ -1,0 +1,6 @@
+{
+  "name": "RailOne – Railway Booking App",
+  "description": "Functional mobile-first clone of the RailOne railway ticketing application featuring unreserved and reserved ticket booking, dynamic countdown preview timer, station search, and booking management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
