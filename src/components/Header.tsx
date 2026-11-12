@@ -1,6 +1,6 @@
-import React from 'react';
 import { Bell } from 'lucide-react';
 import { UserProfile } from '../types';
+import { PWAInstallButton } from './PWAInstallButton';
 
 interface HeaderProps {
   userProfile: UserProfile;
@@ -61,11 +61,12 @@ export const Header: React.FC<HeaderProps> = ({
         </button>
       </div>
 
-      {/* User Greeting below header matching Video 2 */}
-      <div className="mt-2 text-left" onClick={onOpenProfile}>
-        <p className="text-xs font-semibold text-[#1e293b] tracking-tight cursor-pointer hover:text-blue-700">
+      {/* User Greeting and PWA Install Button */}
+      <div className="mt-2 flex items-center justify-between">
+        <p className="text-xs font-semibold text-[#1e293b] tracking-tight cursor-pointer hover:text-blue-700" onClick={onOpenProfile}>
           Hi, <span className="font-bold">{userProfile.name}!</span>
         </p>
+        <PWAInstallButton variant="header" />
       </div>
     </header>
   );

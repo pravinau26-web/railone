@@ -13,6 +13,7 @@ import {
   Pencil,
 } from 'lucide-react';
 import { Booking } from '../types';
+import { PWAInstallButton } from './PWAInstallButton';
 
 interface HomeDashboardProps {
   latestBooking?: Booking;
@@ -49,8 +50,13 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
 
   return (
     <div className="space-y-4 pb-24 bg-white min-h-screen">
+      {/* PWA Install Banner */}
+      <div className="px-4 pt-2">
+        <PWAInstallButton variant="banner" />
+      </div>
+
       {/* 1. Journey Planner Section */}
-      <section className="px-4 pt-2">
+      <section className="px-4 pt-1">
         <h2 className="text-sm font-extrabold text-[#1e293b] tracking-tight mb-2">
           Journey Planner
         </h2>
