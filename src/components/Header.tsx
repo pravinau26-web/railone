@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Bell } from 'lucide-react';
 import { UserProfile } from '../types';
 import { RailOneLogo } from './RailOneLogo';
 import { PWAInstallButton } from './PWAInstallButton';
-import { getAssetUrl } from '../utils/assets';
 
 interface HeaderProps {
   userProfile: UserProfile;
@@ -16,40 +15,76 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenNotifications,
   onOpenProfile,
 }) => {
-  const [langImgError, setLangImgError] = useState(false);
-
   return (
-    <header className="sticky top-0 z-40 bg-white border-b border-slate-100 px-4 pt-2.5 pb-2 shadow-2xs">
+    <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-100 px-4 pt-2.5 pb-2 shadow-2xs">
       <div className="flex items-center justify-between">
-        {/* Language Switcher Circle (A/अ with circular arrows) */}
+        {/* Clean Vector Language Switcher Circle (A/अ with circular arrows) */}
         <button
           type="button"
           onClick={() => alert('Language Switcher: English / தமிழ் / हिन्दी')}
-          className="w-10 h-10 rounded-full bg-white border border-slate-200/90 flex items-center justify-center p-1.5 hover:bg-slate-50 transition-colors cursor-pointer shadow-2xs"
+          className="w-10 h-10 rounded-full bg-white border border-slate-200/90 flex items-center justify-center hover:bg-slate-50 transition-colors cursor-pointer shadow-2xs"
           title="Change Language"
+          aria-label="Change Language"
         >
-          {!langImgError ? (
-            <img
-              src={getAssetUrl('extracted_assets/lang_btn_clean.png')}
-              alt="Language"
-              className="w-7 h-7 object-contain"
-              onError={() => setLangImgError(true)}
+          <svg viewBox="0 0 36 36" className="w-7 h-7" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Curved swap arrows */}
+            <path
+              d="M21 7.5C24.5 8.3 27.2 11 28 14.5"
+              stroke="#1251b5"
+              strokeWidth="2.1"
+              strokeLinecap="round"
             />
-          ) : (
-            <div className="relative w-6 h-6 flex items-center justify-center text-blue-600 font-bold select-none text-[11px] leading-none">
-              <span className="absolute -top-0.5 left-0.5 text-blue-700">A</span>
-              <span className="absolute -bottom-0.5 right-0.5 text-blue-800 text-[10px]">अ</span>
-              <span className="text-[10px] text-slate-300">/</span>
-            </div>
-          )}
+            <path
+              d="M28.8 11.8L28.1 15L25.1 13.7"
+              stroke="#1251b5"
+              strokeWidth="2.1"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M15 28.5C11.5 27.7 8.8 25 8 21.5"
+              stroke="#1251b5"
+              strokeWidth="2.1"
+              strokeLinecap="round"
+            />
+            <path
+              d="M7.2 24.2L7.9 21L10.9 22.3"
+              stroke="#1251b5"
+              strokeWidth="2.1"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            {/* Letter A */}
+            <text
+              x="8.5"
+              y="18.5"
+              fill="#0b46a3"
+              fontSize="12.5"
+              fontWeight="800"
+              fontFamily="system-ui, sans-serif"
+            >
+              A
+            </text>
+            {/* Letter अ */}
+            <text
+              x="17.5"
+              y="26.5"
+              fill="#0b46a3"
+              fontSize="13.5"
+              fontWeight="800"
+              fontFamily="system-ui, sans-serif"
+            >
+              अ
+            </text>
+          </svg>
         </button>
 
-        {/* Exact Authentic RailOne Logo */}
+        {/* Official RailOne Logo */}
         <div className="flex items-center justify-center py-0.5">
           <RailOneLogo size="md" />
         </div>
 
-        {/* Notification Bell with Authentic Red Badge 15 */}
+        {/* Notification Bell with Badge */}
         <button
           type="button"
           onClick={onOpenNotifications}

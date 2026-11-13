@@ -18,7 +18,7 @@ export default defineConfig(() => {
           name: 'RailOne – Railway Booking',
           short_name: 'RailOne',
           description: 'Indian Railways mobile ticket booking app clone',
-          theme_color: '#1264df',
+          theme_color: '#0c6aff',
           background_color: '#f1f5f9',
           display: 'standalone',
           orientation: 'portrait',

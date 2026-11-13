@@ -371,18 +371,19 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 flex flex-col justify-between selection:bg-blue-600 selection:text-white">
-      {/* Top Header (Only on main screen) */}
-      {activeScreen === 'main' && (
-        <Header
-          userProfile={userProfile}
-          onOpenNotifications={() => setActiveModal('notifications')}
-          onOpenProfile={() => setActiveTab('you')}
-        />
-      )}
+    <div className="min-h-screen bg-slate-100 flex flex-col selection:bg-blue-600 selection:text-white">
+      <div className="flex-1 max-w-md mx-auto w-full bg-white min-h-screen sm:shadow-xl flex flex-col justify-between">
+        {/* Top Header (Only on main screen) */}
+        {activeScreen === 'main' && (
+          <Header
+            userProfile={userProfile}
+            onOpenNotifications={() => setActiveModal('notifications')}
+            onOpenProfile={() => setActiveTab('you')}
+          />
+        )}
 
-      {/* Screen Routing */}
-      <main className="flex-1 max-w-md mx-auto w-full">
+        {/* Screen Routing */}
+        <main className="flex-1 w-full">
         {activeScreen === 'ticket-details' && selectedBookingForView ? (
           <TicketDetailsScreen
             booking={selectedBookingForView}
@@ -483,7 +484,8 @@ export default function App() {
             )}
           </div>
         )}
-      </main>
+        </main>
+      </div>
 
       {/* Bottom Navigation (Only visible on main screen) */}
       {activeScreen === 'main' && (

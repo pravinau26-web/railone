@@ -1,6 +1,7 @@
 import React from 'react';
 import { X, User, Wallet, EyeOff, HelpCircle, Headphones, Ticket, Info, ThumbsUp, Share2, LogOut } from 'lucide-react';
 import { UserProfile } from '../types';
+import { RailOneLogo } from './RailOneLogo';
 
 interface SideMenuDrawerProps {
   isOpen: boolean;
@@ -21,8 +22,9 @@ export const SideMenuDrawer: React.FC<SideMenuDrawerProps> = ({
     <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex justify-end animate-in fade-in duration-200">
       <div className="w-4/5 max-w-xs bg-white h-full shadow-2xl flex flex-col justify-between overflow-y-auto animate-in slide-in-from-right duration-200">
         <div>
-          {/* Close button */}
-          <div className="p-3 flex justify-end">
+          {/* Brand & Close button */}
+          <div className="p-3.5 flex items-center justify-between border-b border-slate-100">
+            <RailOneLogo size="sm" />
             <button
               type="button"
               onClick={onClose}
