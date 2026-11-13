@@ -396,9 +396,11 @@ async function startServer() {
 
     app.use(vite.middlewares);
   } else {
-    app.use(express.static(path.resolve(__dirname, 'dist')));
+    const distPath = path.resolve(__dirname, 'dist');
+    app.use('/railone', express.static(distPath));
+    app.use(express.static(distPath));
     app.get('*', (_req, res) => {
-      res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
+      res.sendFile(path.resolve(distPath, 'index.html'));
     });
   }
 
