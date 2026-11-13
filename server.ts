@@ -363,10 +363,37 @@ async function startServer() {
 
   // Vite middleware in dev or static files in production
   if (!isProduction) {
+    const disableHmr = process.env.DISABLE_HMR === 'true';
     const vite = await createViteServer({
-      server: { middlewareMode: true },
+      server: {
+        middlewareMode: true,
+        ...(disableHmr ? { hmr: false, ws: false } : {}),
+      },
       appType: 'spa',
     });
+
+    if (disableHmr) {
+      app.get('/@vite/client', async (_req, res, next) => {
+        try {
+          const result = await vite.transformRequest('/@vite/client');
+          if (!result) return next();
+          const patchedCode = result.code
+            .replace(
+              /const transport = normalizeModuleRunnerTransport\(\(\(\) => \{[\s\S]*?\}\)\(\)\);/,
+              'const transport = normalizeModuleRunnerTransport({ connect() {}, disconnect() {}, send() {} });'
+            )
+            .replace(
+              'setupForwardConsoleHandler(transport, forwardConsole);',
+              '/* Forward console disabled */'
+            );
+          res.setHeader('Content-Type', 'application/javascript');
+          res.send(patchedCode);
+        } catch (err) {
+          next(err);
+        }
+      });
+    }
+
     app.use(vite.middlewares);
   } else {
     app.use(express.static(path.resolve(__dirname, 'dist')));
